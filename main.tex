@@ -1,25 +1,26 @@
 %--------------------
 % Packages
 % -------------------
-\documentclass[11pt,a4paper]{article}
+%\documentclass[11pt,a4paper]{article}
+\documentclass{report}
 \usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 %\usepackage{gentium}
-\usepackage{mathptmx} % Use Times Font
+%\usepackage{mathptmx} % Use Times Font
 
 
 \usepackage[pdftex]{graphicx} % Required for including pictures
-\usepackage[swedish]{babel} % Swedish translations
+%\usepackage[swedish]{babel} % Swedish translations
 \usepackage[pdftex,linkcolor=black,pdfborder={0 0 0}]{hyperref} % Format links for pdf
 \usepackage{calc} % To reset the counter in the document after title page
 \usepackage{enumitem} % Includes lists
 
-\frenchspacing % No double spacing between sentences
-\linespread{1.2} % Set linespace
+%\frenchspacing % No double spacing between sentences
+%\linespread{1.2} % Set linespace
 \usepackage[a4paper, lmargin=0.1666\paperwidth, rmargin=0.1666\paperwidth, tmargin=0.1111\paperheight, bmargin=0.1111\paperheight]{geometry} %margins
-%\usepackage{parskip}
+\usepackage{parskip}
 
-\usepackage[all]{nowidow} % Tries to remove widows
+%\usepackage[all]{nowidow} % Tries to remove widows
 \usepackage[protrusion=true,expansion=true]{microtype} % Improves typography, load after fontpackage is selected
 
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
@@ -29,21 +30,59 @@
 % Set pdf information and add title, fill in the fields
 %-----------------------
 \hypersetup{ 	
-pdfsubject = {},
-pdftitle = {},
-pdfauthor = {}
+    pdfsubject = {},
+    pdftitle = {MVP of a Centralised Social Networking VLE to improve engagement and the reachability of students},
+    pdfauthor = {Alexander Deverson}
 }
+
+% head
+\title{MVP of a Centralised Social Networking VLE to improve engagement and the reachability of students}
+
+\author{
+    {\Large Cardiff University} \\
+    School of Computer Science and Informatics \\ \\ \\
+    {\LARGE CM3203 - Individual Project Report} \\ \\ \\
+    {\Large Alexander Deveron} \\
+    Student No. 21012100 \\ \\
+    Supervisor: Kathryn Jones \\
+    Moderator: Omer F Rana
+}
+\date{May 2023}
 
 %-----------------------
 % Begin document
 %-----------------------
 \begin{document} %All text i dokumentet hamnar mellan dessa taggar, allt ovanför är formatering av dokumentet
 
-\section{Introduction}
+\maketitle
 
-\lipsum[1-3]
+\include{abstract}
 
+\tableofcontents
+\listoffigures
 
-\subsection*{Subtitle}
-\lipsum[4-5]
+\include{chapters/ch-introduction}
+
+\include{chapters/ch-background}
+
+\include{chapters/ch-methodology}
+
+\include{chapters/ch-specifications-design}
+
+\include{chapters/ch-implementation}
+
+\include{chapters/ch-evaluation}
+
+\include{chapters/ch-future-work}
+
+\include{chapters/ch-conclusion}
+
+\include{chapters/ch-reflection}
+
+\appendix
+\include{appendix}
+
+\bibliographystyle{ieee}
+\bibliography{references}
+
 \end{document}
