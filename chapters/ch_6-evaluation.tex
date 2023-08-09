@@ -1,0 +1,343 @@
+\chapter{Evaluation}
+\section{Testing}
+
+\subsection{Unit testing}
+\subsubsection{Database}
+No unit tests were carried out. To carry out unit tests, the application should be refactored to use the create application method which allows for different instances of the application to be created. The main production application and the development and testing application. The development version would use a local SQLite database to allow for testing of the application without altering the production version. This would also simplify the process of creating unit tests.
+
+\subsubsection{Routes/Views}
+In the current version of the application, routes were unable to be tested using unit tests. This is due to the way the application is called. For routes to be tested using unit tests, the application would need to be refactored to use the create app factory technique. This allows different versions of the application to be used such as a development version, a testing version and a production version.
+
+\subsection{User testing}
+The current user testing was done by myself on both mobile and desktop, but further testing will need to be done with other users on a greater range of devices. For the application, a Samsung Note 10 with the Google Chrome browser was used for mobile, and a ThinkPad T460p was used for Desktop on both the Firefox and Google Chrome browsers. 
+
+One of the notable differences between the Firefox and Google Chrome browsers was the scroll bar. The way the application was built worked correctly on Firefox, but the scroll bar didn't work correctly. To solve this issue a new scroll bar design was coded using CSS. In Firefox only the scroll bar for where the user hovers is shown but in Google Chrome, all the scroll bars are shown. The new design replicated the Firefox design in Google Chrome. 
+
+\section{Limitations of the prototype}
+Some current limitations of the prototype are:
+
+- Most items can't be edited by a user
+    \begin{itemize}
+        \item Lectures
+        \item Posts
+        \item Questions
+        \item Messages
+        \item Comments
+        \item Module resources
+    \end{itemize}
+- Most items can't be deleted by a user once created/posted
+    \begin{itemize}
+        \item Posts
+        \item Questions
+        \item Messages
+        \item Comments
+        \item Module resources
+    \end{itemize}
+- Tutors can't sign-up/register for the application as easily as a student can. It requires a tutor to send an email, then create an account, send a new email with the username, and then the admin of the site can change that user to a tutor. \newline\newline
+- There is no content algorithm for what posts should be shown. All posts by all users from all schools and years are shown together in the order they are posted.\newline\newline
+- There is no filtering or searching for questions. However, a user can only see questions for the modules they follow/subscribe to.\newline\newline
+- There is no filtering or searching for users either.\newline\newline
+- There is no dedicated section for tutors,  but as the application is an MVP, it was focused on the students, they had to be prioritised over the tutors.
+
+% \cite{interview_bit_flask_2022}
+
+
+\section{Requirement results}
+\subsection{Functional requirements}
+\subsubsection{MUST}
+
+\begin{tabular}{|p{1cm}|p{10cm}|p{3cm}|}
+    \hline
+        \textbf{ID} & \textbf{Requirement} & \textbf{Result} \\
+    \hline
+    F-r1 &
+    Users must be able to register an account login & 
+    PASS \\
+    \hline
+    F-r2 & 
+    Students MUST be able to view upcoming lectures for that day (if available) & 
+    PASS \\
+    \hline
+    F-r3 &
+    Students MUST be able to see the modules they are taking &
+    PASS \\
+    \hline
+    F-r4 &
+    Students MUST be able to see a list of modules relating to their year and school &
+    PASS \\
+    \hline
+    F-r5 &
+    Students MUST be able to post a question relating to a module &
+    PASS \\
+    \hline
+    F-r6 &
+    Students MUST be able to view information/resources relevant to a specific module &
+    PASS \\
+    \hline
+    F-r7 &
+    Students MUST be able to add resources to a module (pictures, pdfs) &
+    PASS \\
+    \hline
+    F-r8 &
+    Students MUST be able to comment on a question or post &
+    PASS \\
+    \hline
+    F-r9 &
+    Students MUST be able to message in a module’s group chat &
+    PASS \\
+    \hline
+    F-r10 &
+    Students MUST be able to view all available upcoming lectures for a specific module &
+    PASS \\
+    \hline
+    F-r11 &
+    Students MUST be able to subscribe to a module in their year and school &
+    PASS \\
+    \hline
+    F-r12 &
+    Students MUST be able to unsubscribe to a module &
+    PASS \\
+    \hline
+    F-r13 &
+    Users MUST be able to update their account info (Username, First name, etc) &
+    PASS \\
+    \hline
+    F-r14 &
+    Students MUST be able to see their home dashboard (user area home page) &
+    PASS \\
+    \hline
+    F-r15 &
+    Users MUST be able to log out of their account &
+    PASS \\
+    \hline
+\end{tabular}
+
+\subsubsection{SHOULD}
+
+\begin{tabular}{|p{1cm}|p{10cm}|p{3cm}|}
+    \hline
+        \textbf{ID} & \textbf{Requirement} & \textbf{Result} \\
+    \hline
+    F-r16 &
+    Students SHOULD be able to view lecture videos if linked & 
+    FAIL - URL/link resources were not added \\
+    \hline
+    F-r17 &
+    Students SHOULD be able to make notes on a lecture & 
+    PARTIAL PASS -  they can make notes linked to a module but not linked to a specific lecture\\
+    \hline
+    F-r18 &
+    Students SHOULD be able to create general notes & 
+    PASS \\
+    \hline
+    F-r19 &
+    Students SHOULD be able to view and edit a created note & 
+    PASS \\
+    \hline
+    F-r20 &
+    Students SHOULD be able to view a list of all the notes they’ve created & 
+    PASS \\
+    \hline
+    F-r21 &
+    Students SHOULD be able to message another User directly & 
+    PARTIAL PASS - they can, but a message thread is still created \\
+    \hline
+    F-r22 &
+    Students SHOULD be able to chat with users in real-time & 
+    PASS \\
+    \hline
+    F-r23 &
+    Students SHOULD be able to review a module they are taking & 
+    FAIL - reviews were not added \\
+    \hline
+    F-r24 &
+    Students SHOULD be able to see reviews of other modules in their school & 
+    FAIL - reviews were not added \\
+    \hline
+    F-r25 &
+    Students SHOULD be able to view who posted a question & 
+    PASS \\
+    \hline
+    F-r26 &
+    Students SHOULD be able to view the date-time a question was posted & 
+    PASS \\
+    \hline
+    F-r27 &
+    Students SHOULD be able to view the date-time a question was edited & 
+    FAIL - question editing was not added \\
+    \hline
+    F-r28 &
+    Students SHOULD be able to view who posted comments & 
+    PASS \\
+    \hline
+    F-r29 &
+    Students SHOULD be able to view the date-time a comment was posted & 
+    PASS \\
+    \hline
+    F-r30 &
+    Students SHOULD be able to view uploaded a module resource & 
+    PASS \\
+    \hline
+    F-r31 &
+    Students SHOULD be able to view the date-time a module resource was posted/uploaded & 
+    PASS \\
+    \hline
+    F-r32 &
+    Users SHOULD be able to update their public profile & 
+    PASS - done in account page \\
+    \hline
+\end{tabular}
+
+\subsubsection{COULD}
+
+\begin{tabular}{|p{1cm}|p{10cm}|p{3cm}|}
+    \hline
+        \textbf{ID} & \textbf{Requirement} & \textbf{Result} \\
+    \hline
+    F-r33 &
+    Students COULD be able to add another student as a friend & 
+    FAIL - friend feature was not added \\
+    \hline
+    F-r34 &
+    Students COULD be able to see their friends list & 
+    FAIL - friend feature was not added \\
+    \hline
+    F-r35 &
+    Students COULD be able to message a friend directly & 
+    FAIL - friend feature was not added \\
+    \hline
+    F-r36 &
+    Students COULD be able to add friends to a group chat & 
+    FAIL - friend feature was not added \\
+    \hline
+    F-r37 &
+    Tutors COULD be able to be assigned a student to a module & 
+    FAIL \\
+    \hline
+    F-r38 &
+    Students COULD be able to create a note against a friend & 
+    FAIL - friend feature was not added \\
+    \hline
+    F-r39 &
+    Students COULD be able to give a friend a nickname & 
+    FAIL - friend feature was not added \\
+    \hline
+    F-r40 &
+    Students COULD be able to invite another user to join the site & 
+    FAIL \\
+    \hline
+    F-r41 &
+    Tutors COULD be able to post polls for students to answer & 
+    FAIL - polls feature was not added \\
+    \hline
+    F-r42 &
+    Students COULD be able to use Markdown to type/format/edit posts, notes and comments & 
+    FAIL \\
+    \hline
+    F-r43 &
+    Users COULD be able to see which Tutor(s) are teaching a module & 
+    PASS \\
+    \hline
+    F-r44 &
+    Users COULD be able to change between light mode and dark mode view & 
+    FAIL - dark mode was not added \\
+    \hline
+    F-r45 &
+    Users COULD use a Keyboard shortcut to send a message & 
+    PASS \\
+    \hline
+    F-r46 &
+    Students COULD be able to view the modules they subscribed to in the past years (if applicable) & 
+    PASS \\
+    \hline
+\end{tabular}
+    
+\subsection{Non-functional requirements}
+\subsubsection{MUST}
+
+\begin{tabular}{|p{1cm}|p{10cm}|p{3cm}|}
+    \hline
+        \textbf{ID} & \textbf{Requirement} & \textbf{Result} \\
+    \hline
+    NF-r1 &
+    When a lecture is added, the system MUST record who has performed this action and the date-time & 
+    PASS \\
+    \hline
+    NF-r2 &
+    It MUST take a max of one click for a user to be able to navigate to their home page & 
+    PASS \\
+    \hline
+    NF-r3 &
+    Once a new module has been added, a new message thread MUST be created and linked & 
+    PASS \\
+    \hline
+    NF-r4 &
+    The system MUST create a new message thread once the first message is received from the current user which has been sent to another user & 
+    PASS \\
+    \hline
+    NF-r5 &
+    The system MUST add the user to the module's message thread after the user clicks the subscribes to the modules button  & 
+    PASS \\
+    \hline
+    NF-r6 &
+    A WebSocket connect MUST be established within 5 seconds of a user loading a single module page or a single message thread page & 
+    PASS \\
+    \hline
+    NF-r7 &
+    p
+    The system MUST not allow a user to authenticate with incorrect details such as the wrong password & 
+    PASS \\
+    \hline
+    NF-r8 &
+    It MUST not take a user more than one click to access a subscribed module page on a desktop or three clicks on a mobile device &  
+    PASS \\
+    \hline
+\end{tabular}    
+
+\subsubsection{SHOULD}
+
+\begin{tabular}{|p{1cm}|p{10cm}|p{3cm}|}
+    \hline
+        \textbf{ID} & \textbf{Requirement} & \textbf{Result} \\
+    \hline
+    NF-r9 &
+    The system SHOULD try to retrieve og:tag information for a link when it is uploaded to the site & 
+    FAIL - URL/link resources were not added \\
+    \hline
+    NF-r10 &
+    OG:tags SHOULD load for a link (if available) when required for a page & 
+    FAIL - URL/link resources were not added \\
+    \hline
+    NF-1 &
+    A YouTube or Panopto video SHOULD not load/autoplay until it is clicked on by the user & 
+    FAIL - URL/link resources were not added \\
+    \hline
+    NF-r12 &
+    A YouTube or Panopto video MUST be embeddable onto the page when loaded & 
+    FAIL - URL/link resources were not added \\
+    \hline
+    NF-r13 &
+    HTTP long pulling SHOULD be established when a WebSocket connection fails if not due to internet disconnection & 
+    PASS \\
+    \hline
+\end{tabular}
+
+\subsubsection{COULD}
+
+\begin{tabular}{|p{1cm}|p{10cm}|p{3cm}|}
+    \hline
+        \textbf{ID} & \textbf{Requirement} & \textbf{Result} \\
+    \hline
+    NF-r14 &
+    A page COULD load content as the user scrolls & 
+    FAIL - button pagination was used \\
+    \hline
+    NF-r15 &
+    A note for a Student COULD autosave in the background every 15 seconds as they are editing & 
+    FAIL \\
+    \hline
+    NF-r16 &
+    A WebSocket COULD be established between the client (user’s computer) and the server after a user logins into the application & 
+    FAIL - they're only used on specific pages instead of site-wide \\
+    \hline
+\end{tabular}

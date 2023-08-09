@@ -1,0 +1,19 @@
+\chapter{Reflection}
+
+\section{What I learnt}
+
+During this project's development, I learnt how to deploy a production-ready application to AWS, which took more time than it should have, although it was due to Nginx mostly. I have never deployed a production-ready application before and this is the closest I have ever gotten. This is also the first time I have used AWS. In the past, I have only ever used software such as cPanel and Xampp to host an application before.
+
+For the reverse proxy on the server, I used Nginx. I have used it many times in the past for hosting WordPress websites, but it was bundled in an Xampp application so I never needed to worry about how to use it. I definitely jumped into the deep end, though, as using WebSockets with Nginx is not a trivial task, especially the first time using it. There was a lot of configuration involved in getting it to work properly, but I made so many mistakes and changed so many configure action files only to end back where I started that I now know how to deploy an application properly in the future. 
+
+One of the things I was most nervous about introducing into the application was WebSockets. This is a technology I have wanted to use for a while but never touched and had very little knowledge about before this project. I was worried about implementing WebSockets into the application codebase as it involved a slight refactoring of the application, but this turned out to be an irrational fear as adding it was a trivial process, barring a few issues with connecting the WebSockets to the front end. The real problem with WebSockets was when deploying the application, both with Elastic Beanstalk and with Nginx. This was where most of my problems from the project happened. 
+
+\section{What I would change}
+If I were to start over and rebuild the MVP from scratch, I would have used a JavaScript framework for the front end. I feel this would have added extra functionality to the application. I also wish I had made all the paginated content, such as questions and resources, use Ajax, as it would have improved the useability. Currently, when clicking to go to a new page for the paginated content, it will refresh the page, and in the case of the single module page, it will also reset the other paginated section back to the first page. With Ajax, it just needs to pull the new content and doesn't refresh the whole page. I feel this would make for a better user experience.
+
+In my initial plan, I said I should be able to do a user survey and user testing with other people if I put in the application soon enough. I planned to do the user study after the Easter half-term break, but I found I needed to do more research than I initially thought and therefore didn't know what to ask and what I should test in the study. By the time I was ready to start the ethics process, I was told by had heard from multiple people that the ethics process was now going to take too long or it was too late, etc. As a result, I decided not to waste time on ethics and progress with building my application. I now know that, in reality, it wasn't too late and would have been worth the effort. After participating in another student's user study, I realise how useful it would have been to do my own as I would have been able to get a lot of data on how users plan on using the application, what they would like to be added and find out what level the system would operate at on the low tier for AWS with 10 to 40 people using the application at the same time.
+
+\section{What I would add}
+I would like to have added push notifications through a PWA.
+
+The most important thing I would add is the ability to filter & search for users & questions, etc. This would make for a better user experience, and in hindsight, this is probably an expected feature for applications of this type now.

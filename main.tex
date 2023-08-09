@@ -4,13 +4,15 @@
 %\documentclass[11pt,a4paper]{article}
 \documentclass{report}
 \usepackage[utf8x]{inputenc}
-%\usepackage[T1]{fontenc}
-%\usepackage{gentium}
-%\usepackage{mathptmx} % Use Times Font
+\usepackage[T1]{fontenc}
+% \usepackage{gentium}
+\usepackage{mathptmx} % Use Times Font
+% \usepackage{lmodern} % Use Latin Modern Sans Serif Font
 
 
 \usepackage[pdftex]{graphicx} % Required for including pictures
-%\usepackage[swedish]{babel} % Swedish translations
+\graphicspath{{images/}}
+
 \usepackage[pdftex,linkcolor=black,pdfborder={0 0 0}]{hyperref} % Format links for pdf
 \usepackage{calc} % To reset the counter in the document after title page
 \usepackage{enumitem} % Includes lists
@@ -18,12 +20,25 @@
 %\frenchspacing % No double spacing between sentences
 %\linespread{1.2} % Set linespace
 \usepackage[a4paper, lmargin=0.1666\paperwidth, rmargin=0.1666\paperwidth, tmargin=0.1111\paperheight, bmargin=0.1111\paperheight]{geometry} %margins
-\usepackage{parskip}
+\usepackage{parskip} % this adds a newline infront of a paragraph and prvents indentation
 
 %\usepackage[all]{nowidow} % Tries to remove widows
 \usepackage[protrusion=true,expansion=true]{microtype} % Improves typography, load after fontpackage is selected
 
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+% \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{float}
+
+% reference to code for changing the chapter spacing: https://stackoverflow.com/a/3284059 [accessed: 3/5/2023]
+\titleformat{\chapter} [display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
 
 
 %-----------------------
@@ -31,14 +46,15 @@
 %-----------------------
 \hypersetup{ 	
     pdfsubject = {},
-    pdftitle = {MVP of a Centralised Social Networking VLE to improve engagement and the reachability of students},
+    pdftitle = {Prototype of a Centralised Social Networking VLE to improve engagement and the reachability of students},
     pdfauthor = {Alexander Deverson}
 }
 
-% head
-\title{MVP of a Centralised Social Networking VLE to improve engagement and the reachability of students}
+% head (title page)
+\title{Prototype of a Centralised Social Networking VLE to improve engagement and the reachability of students}
 
 \author{
+    {\includegraphics[scale=0.12]{Cardiff_University_logo.png}} \\ \\ \\
     {\Large Cardiff University} \\
     School of Computer Science and Informatics \\ \\ \\
     {\LARGE CM3203 - Individual Project Report} \\ \\ \\
@@ -52,37 +68,37 @@
 %-----------------------
 % Begin document
 %-----------------------
-\begin{document} %All text i dokumentet hamnar mellan dessa taggar, allt ovanför är formatering av dokumentet
+\begin{document}
 
 \maketitle
 
-\include{abstract}
+% \include{abstract} % add this back ---------------
 
 \tableofcontents
 \listoffigures
 
-\include{chapters/ch-introduction}
+\include{chapters/ch_1-introduction}
 
-\include{chapters/ch-background}
+\include{chapters/ch_2-background}
 
-\include{chapters/ch-methodology}
+\include{chapters/ch_3-methodology}
 
-\include{chapters/ch-specifications-design}
+\include{chapters/ch_4-specifications-design}
 
-\include{chapters/ch-implementation}
+\include{chapters/ch_5-implementation}
 
-\include{chapters/ch-evaluation}
+\include{chapters/ch_6-evaluation}
 
-\include{chapters/ch-future-work}
+\include{chapters/ch_7-future-work}
 
-\include{chapters/ch-conclusion}
+\include{chapters/ch_8-conclusion}
 
-\include{chapters/ch-reflection}
+\include{chapters/ch_9-reflection}
 
 \appendix
-\include{appendix}
+% \include{appendix}
 
-\bibliographystyle{ieee}
+\bibliographystyle{IEEEtran}
 \bibliography{references}
 
 \end{document}
